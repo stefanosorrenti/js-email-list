@@ -30,3 +30,17 @@ Cosa devo fare?
 BONUS:
 
 */
+
+
+//DATA
+//Salvare il endpoint
+const endpoint = 'https://flynn.boolean.careers/exercises/api/random/mail'
+
+fetch(endpoint)
+.then(data => data.json())
+.then(randomEmail => {
+    //console.log(randomEmail);
+    const randomMail = randomEmail.response //Selezionarmi la chiave email
+    console.log(randomMail);
+    
+})
