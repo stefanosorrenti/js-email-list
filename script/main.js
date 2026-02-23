@@ -53,47 +53,59 @@ const buttonEl = document.querySelector('button')
 //LOGIC
 
 //Invoco la funzione che mi genera e stampa 10 email
-//getRandomMail()
 
+getRandomEmail()
 
 
 
 
 
 //Aggiungo evento per il button (quando clicco)
-//buttonEl.addEventListener('click', ()=>getRandomMail()) //richiamo la funzione
+buttonEl.addEventListener('click', function(){
+
+    list.innerHTML = ''
+    getRandomEmail()
+    
+    //richiamo la funzione
+}) 
+
+
+
+
+
+
 
 //Functions
-/* function getRandomMail (){
+function getRandomEmail() {
 
+for (let i = 0; i < 10; i++) { //Loopo 10 volte la richiesta di email
     
-} */
+    fetch(endpoint) //Invio la richiesta all'API
 
+    .then(data => data.json()) //Trasformo la risposta dell'API in formato JSON
 
-
-for (let i = 0; i < 10; i++) {
-    
-    fetch(endpoint)
-    .then(data => data.json())
-    .then(randomEmails => {
+    .then(randomEmails => { //Assegno un nome alla nostra promessa con cui lavoreremo
         //console.log(randomEmails.response);
-        let email = randomEmails.response
+        let email = randomEmails.response //Salvo in una variabile la chiave dell'email
         //console.log(email);
-        let markUp = `<li>${email} ${i}</li>`
+        let markUp = `<li>${email}` //Creo una variabile con il markup che ci serve interpolando la variabile mail
         //console.log(markUp);
         //console.log(emailList += markUp);
           
-        list.innerHTML += markUp
+        list.innerHTML += markUp //Ad ogni itnerazione aggiungo il markup al nodo
         
     })
     
+}
+
+    return list.innerHTML
 }
 
 
 
 
 
-
+console.log(typeof ge);
 
 
 
