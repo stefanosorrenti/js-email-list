@@ -44,22 +44,35 @@ let list = document.querySelector('.email-list')
 //LOGIC
 
 
+getRandomMail()
+
+
+
+
+
+
+
+
+//Functions
+function getRandomMail (){
 fetch(endpoint)
-.then(data => data.json())
-.then(randomEmail => {
-    //console.log(randomEmail);
-    const randomMail = randomEmail.response //Selezionarmi la chiave email
-    //console.log(randomMail);
-    let emails = ''
+    .then(data => data.json())
+    .then(randomEmail => {
+        //console.log(randomEmail);
+        const randomMail = randomEmail.response //Selezionarmi la chiave email
+        //console.log(randomMail);
+        let emails = ''
 
-    for(i = 1; i <= 10; i++){
-        const markUp = `
+        for (i = 1; i <= 10; i++) {
+            const markUp = `
         <li>${randomMail}</li>`
-        console.log(markUp);
-        
-        emails += markUp
-    }
-console.log(emails);
-list.innerHTML = emails
+            //console.log(markUp);
 
-})
+            emails += markUp
+        }
+        //console.log(emails);
+        list.innerHTML = emails
+
+    })
+
+}
