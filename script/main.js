@@ -28,6 +28,11 @@ Cosa devo fare?
 
 
 BONUS:
+-Incarto la logica in una funzione
+-Aggiungo un botton lato HTML
+-Mi seleziono il nodo del bottone
+-Aggiungo un evento in ascolto al bottone (click)
+-Inserico la funzione dentro l'evento
 
 */
 
@@ -47,38 +52,56 @@ const buttonEl = document.querySelector('button')
 
 //LOGIC
 
-
-getRandomMail()
-
-
+//Invoco la funzione che mi genera e stampa 10 email
+//getRandomMail()
 
 
 
 
-//Aggiungo evento per il button
 
-buttonEl.addEventListener('click', ()=>getRandomMail())
+
+//Aggiungo evento per il button (quando clicco)
+//buttonEl.addEventListener('click', ()=>getRandomMail()) //richiamo la funzione
 
 //Functions
-function getRandomMail (){
-fetch(endpoint)
+/* function getRandomMail (){
+
+    
+} */
+
+
+
+for (let i = 0; i < 10; i++) {
+    
+    fetch(endpoint)
     .then(data => data.json())
-    .then(randomEmail => {
-        //console.log(randomEmail);
-        const randomMail = randomEmail.response //Selezionarmi la chiave email
-        //console.log(randomMail);
-        let emails = ''
-
-        for (i = 1; i <= 10; i++) {
-            const markUp = `
-        <li>${randomMail}</li>`
-            //console.log(markUp);
-
-            emails += markUp
-        }
-        //console.log(emails);
-        list.innerHTML = emails
-
+    .then(randomEmails => {
+        //console.log(randomEmails.response);
+        let email = randomEmails.response
+        //console.log(email);
+        let markUp = `<li>${email} ${i}</li>`
+        //console.log(markUp);
+        //console.log(emailList += markUp);
+          
+        list.innerHTML += markUp
+        
     })
-
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
