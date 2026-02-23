@@ -22,7 +22,7 @@ Buon divertimento e confermate lettura come al solito :babyyoda:
 Cosa devo fare?
 -Salvare il endpoint
 -Selezionarmi la chiave email
--Creare una lista HTML
+-Creare una lista in HTML e selezioane il nodo
 -Loopare per 10 volte la chiave
 -Inserirla nella  lista
 
@@ -36,11 +36,30 @@ BONUS:
 //Salvare il endpoint
 const endpoint = 'https://flynn.boolean.careers/exercises/api/random/mail'
 
+//Creare una lista in HTML e selezioane il nodo
+let list = document.querySelector('.email-list')
+//console.log(list);
+
+
+//LOGIC
+
+
 fetch(endpoint)
 .then(data => data.json())
 .then(randomEmail => {
     //console.log(randomEmail);
     const randomMail = randomEmail.response //Selezionarmi la chiave email
-    console.log(randomMail);
-    
+    //console.log(randomMail);
+    let emails = ''
+
+    for(i = 1; i <= 10; i++){
+        const markUp = `
+        <li>${randomMail}</li>`
+        console.log(markUp);
+        
+        emails += markUp
+    }
+console.log(emails);
+list.innerHTML = emails
+
 })
