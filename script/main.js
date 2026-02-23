@@ -40,6 +40,10 @@ const endpoint = 'https://flynn.boolean.careers/exercises/api/random/mail'
 let list = document.querySelector('.email-list')
 //console.log(list);
 
+//Seleziono il nodo dell button
+const buttonEl = document.querySelector('button')
+
+
 
 //LOGIC
 
@@ -51,7 +55,9 @@ getRandomMail()
 
 
 
+//Aggiungo evento per il button
 
+buttonEl.addEventListener('click', ()=>getRandomMail())
 
 //Functions
 function getRandomMail (){
