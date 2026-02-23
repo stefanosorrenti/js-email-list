@@ -88,7 +88,7 @@ for (let i = 0; i < 10; i++) { //Loopo 10 volte la richiesta di email
         //console.log(randomEmails.response);
         let email = randomEmails.response //Salvo in una variabile la chiave dell'email
         //console.log(email);
-        let markUp = `<li>${email}` //Creo una variabile con il markup che ci serve interpolando la variabile mail
+        let markUp = `<li class = "list-group-item fw-semibold">${email}` //Creo una variabile con il markup che ci serve interpolando la variabile mail
         //console.log(markUp);
         //console.log(emailList += markUp);
           
@@ -105,7 +105,6 @@ for (let i = 0; i < 10; i++) { //Loopo 10 volte la richiesta di email
 
 
 
-console.log(typeof ge);
 
 
 
